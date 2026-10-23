@@ -19,8 +19,6 @@ collections:
             name: "photos"
             widget: "list"
             summary: "{{fields.title}} [Tema: {{fields.category}}]"
-            field:
-              label: "Fotografia"
             fields:
               - { label: "Título da Foto / Ensaio", name: "title", widget: "string", hint: "Ex: Ensaio de Gestante no Parque" }
               - { label: "Tema / Categoria", name: "category", widget: "select", options: ["gestante", "casal", "feminino", "fitness", "eventos"], default: "gestante", hint: "Escolha o tema onde esta foto vai aparecer no site" }
