@@ -1,160 +1,472 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel Editorial | WB Fotografias</title>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weliton Batista | WB Fotografias — Coimbra</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@500;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#121110',
+              dark: '#1B1A18',
+              card: '#22201D',
+              cream: '#F7F5F0',
+              sand: '#EAE6DF',
+              amber: '#D87D56',
+              muted: '#8C867E'
+            }
+          },
+          fontFamily: {
+            display: ['Cabinet Grotesk', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Space Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #121110;
+      color: #F7F5F0;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #121110;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D87D56;
+      border-radius: 3px;
+    }
+
+    .filter-btn.active {
+      color: #F7F5F0;
+      border-bottom: 2px solid #D87D56;
+    }
+
+    .gallery-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
     
-    <!-- Google Fonts idênticas às da Landing Page -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Script do Netlify Identity -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    .gallery-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
 
-    <style>
-      /* Base & Tipografia da Marca */
-      *, *::before, *::after {
-        box-sizing: border-box !important;
-      }
+<body class="font-sans antialiased text-brand-cream selection:bg-brand-amber selection:text-white">
 
-      body, #nc-root {
-        background-color: #121110 !important;
-        color: #F7F5F0 !important;
-        font-family: 'Inter', sans-serif !important;
-      }
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="font-display font-black text-xl lg:text-2xl tracking-tight text-white uppercase hover:text-brand-amber transition-colors">
+        WELITON BATISTA<span class="text-brand-amber">.</span>
+      </a>
 
-      /* Cabeçalho do Admin */
-      header, nav[class*="AppHeader"] {
-        background-color: #1B1A18 !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: none !important;
-      }
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest text-brand-muted uppercase">
+        <a href="#inicio" class="hover:text-white transition-colors">INÍCIO</a>
+        <a href="#portfolio" class="hover:text-white transition-colors">PORTFÓLIO</a>
+        <a href="#sobre" class="hover:text-white transition-colors">SOBRE</a>
+        <a href="#contacto" class="hover:text-white transition-colors">CONTACTO</a>
+      </nav>
 
-      /* Títulos em Cabinet Grotesk */
-      h1, h2, h3, h4, h5, [class*="SidebarHeading"], [class*="CollectionTop"] {
-        font-family: 'Cabinet Grotesk', sans-serif !important;
-        font-weight: 800 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
-        color: #FFFFFF !important;
-      }
+      <!-- Action Button -->
+      <div class="hidden md:block">
+        <a href="https://wa.me/message/3O2TRCKN4YJTB1?text=Ol%C3%A1%20Weliton!%20Gostaria%20de%20agendar%20um%20ensaio." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="px-5 py-2.5 border border-white/30 rounded-none text-xs font-mono tracking-widest text-white hover:border-brand-amber hover:bg-brand-amber hover:text-white transition-all uppercase">
+          AGENDAR ENSAIO
+        </a>
+      </div>
 
-      /* Botões em Monospace e Caixa Alta (Estilo do Site) */
-      button, a[class*="Button"], [class*="ControlPane"] button {
-        font-family: 'Space Mono', monospace !important;
-        text-transform: uppercase !important;
-        font-size: 11px !important;
-        letter-spacing: 0.1em !important;
-        border-radius: 0px !important;
-        transition: all 0.3s ease !important;
-      }
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
 
-      /* Botão Principal: Adicionar Novo Ensaio / Publicar */
-      a[href*="/new"], button[class*="PublishButton"], button[class*="SaveButton"] {
-        background-color: #D87D56 !important;
-        color: #FFFFFF !important;
-        border: 1px solid #D87D56 !important;
-        padding: 10px 20px !important;
-        font-weight: 700 !important;
-      }
+    </div>
 
-      a[href*="/new"]:hover, button[class*="PublishButton"]:hover {
-        background-color: #FFFFFF !important;
-        color: #121110 !important;
-        border-color: #FFFFFF !important;
-      }
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-b border-white/10 px-6 py-6 space-y-4 text-xs font-mono tracking-widest uppercase">
+      <a href="#inicio" class="block py-2 text-white">INÍCIO</a>
+      <a href="#portfolio" class="block py-2 text-white">PORTFÓLIO</a>
+      <a href="#sobre" class="block py-2 text-white">SOBRE</a>
+      <a href="#contacto" class="block py-2 text-white">CONTACTO</a>
+      <a href="https://wa.me/message/3O2TRCKN4YJTB1?text=Ol%C3%A1%20Weliton!%20Gostaria%20de%20agendar%20um%20ensaio." 
+         target="_blank" 
+         class="block py-3 text-center bg-brand-amber text-white font-bold mt-4">
+        AGENDAR ENSAIO
+      </a>
+    </div>
+  </header>
 
-      /* Botão de ELIMINAR / APAGAR em Destaque Vermelho/Aviso */
-      button[class*="DeleteButton"] {
-        background-color: transparent !important;
-        border: 1px solid #E53E3E !important;
-        color: #FC8181 !important;
-        padding: 8px 16px !important;
-        margin-top: 10px !important;
-      }
 
-      button[class*="DeleteButton"]:hover {
-        background-color: #E53E3E !important;
-        color: #FFFFFF !important;
-      }
+  <!-- ================= HERO SECTION ================= -->
+  <section id="inicio" class="pt-32 pb-16 lg:pt-36 lg:pb-24 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-stretch">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-8 py-2">
+          
+          <div class="space-y-6">
+            <div class="flex items-center gap-3 text-xs font-mono tracking-widest text-brand-amber uppercase">
+              <span class="w-8 h-[1px] bg-brand-amber"></span>
+              <span>SOU WELITON BATISTA — FOTÓGRAFO EM COIMBRA</span>
+            </div>
 
-      /* Cards na Lista de Fotos */
-      [class*="Card"], [class*="CollectionCard"], div[class*="GridCard"] {
-        background-color: #1B1A18 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 0px !important;
-        padding: 16px !important;
-        transition: border-color 0.3s ease, transform 0.3s ease !important;
-      }
+            <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight uppercase text-white">
+              FOTOGRAFIA QUE TRANSFORMA MOMENTOS EM MEMÓRIAS.
+            </h1>
 
-      [class*="Card"]:hover {
-        border-color: #D87D56 !important;
-        transform: translateY(-2px) !important;
-      }
+            <p class="text-sm sm:text-base text-brand-muted font-light max-w-lg leading-relaxed">
+              Capturo a essência de ensaios de Gestantes, Casais, Retratos Femininos, Fitness e Eventos em Coimbra com a beleza da luz natural.
+            </p>
+          </div>
 
-      /* Caixas de Texto, Form e Inputs */
-      [class*="ControlPane"] {
-        background-color: #121110 !important;
-      }
+          <!-- Hero Action CTA -->
+          <div class="pt-4 flex items-center gap-6">
+            <a href="#portfolio" 
+               class="px-8 py-4 bg-white text-brand-black hover:bg-brand-amber hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all">
+              VER PORTFÓLIO
+            </a>
+          </div>
 
-      div[class*="ControlContainer"] {
-        background-color: #1B1A18 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 0px !important;
-        padding: 20px !important;
-        margin-bottom: 24px !important;
-      }
+          <!-- Bottom Social Bar / Slide Indicator -->
+          <div class="pt-12 border-t border-white/10 flex flex-wrap items-center justify-between text-xs font-mono text-brand-muted uppercase gap-4">
+            <div class="flex items-center gap-6">
+              <a href="https://www.instagram.com/wb_fotografias/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-amber transition-colors">INSTAGRAM</a>
+              <span>/</span>
+              <a href="https://wa.me/message/3O2TRCKN4YJTB1" target="_blank" rel="noopener noreferrer" class="hover:text-brand-amber transition-colors">WHATSAPP</a>
+              <span>/</span>
+              <a href="mailto:contato@wbfotografias.pt" class="hover:text-brand-amber transition-colors">E-MAIL</a>
+            </div>
 
-      /* Rótulos dos Campos (Labels) com Informação Clara */
-      label[class*="ControlLabel"] {
-        color: #D87D56 !important;
-        font-family: 'Space Mono', monospace !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.1em !important;
-        margin-bottom: 8px !important;
-        display: block !important;
-      }
+            <div class="text-brand-amber font-bold tracking-widest">
+              01 <span class="text-brand-muted font-normal">/ 05</span>
+            </div>
+          </div>
 
-      /* Dicas explicativas sob cada campo */
-      span[class*="Hint"] {
-        color: #8C867E !important;
-        font-size: 12px !important;
-        font-style: normal !important;
-        margin-top: 6px !important;
-        display: block !important;
-      }
+        </div>
 
-      /* Inputs, Selects e Dropdowns */
-      input[type="text"], select, textarea {
-        background-color: #121110 !important;
-        color: #F7F5F0 !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-radius: 0px !important;
-        padding: 12px 14px !important;
-        font-size: 14px !important;
-        width: 100% !important;
-      }
+        <!-- Right Hero Image: Weliton Batista Portrait -->
+        <div class="lg:col-span-5 flex items-center">
+          <div class="relative w-full h-full min-h-[480px] lg:min-h-[560px] bg-brand-dark border border-white/10 overflow-hidden">
+            <img src="img/weliton_img.webp" 
+                 alt="Weliton Batista - Fotógrafo" 
+                 class="w-full h-full object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-700">
+          </div>
+        </div>
 
-      input[type="text"]:focus, select:focus, textarea:focus {
-        border-color: #D87D56 !important;
-        outline: none !important;
-      }
+      </div>
 
-      /* Caixa de Upload de Imagem */
-      div[class*="FileControl"] {
-        border: 1px dashed #D87D56 !important;
-        background-color: #121110 !important;
-        padding: 24px !important;
-        text-align: center !important;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Script do Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+    </div>
+  </section>
+
+
+  <!-- ================= SELECTED WORKS / PORTFOLIO SECTION ================= -->
+  <section id="portfolio" class="py-20 lg:py-28 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+      
+      <!-- Section Header & Filter Navigation -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-6 border-b border-white/10">
+        
+        <div>
+          <div class="flex items-center gap-3 text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">
+            <span class="w-6 h-[1px] bg-brand-amber"></span>
+            <span>PORTFÓLIO RECENTE</span>
+          </div>
+          <h2 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white">
+            TRABALHOS SELECIONADOS
+          </h2>
+        </div>
+
+        <!-- Filter Links -->
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono tracking-widest uppercase text-brand-muted" id="filter-container">
+          <button data-filter="all" class="filter-btn active py-1.5 hover:text-white transition-colors">TODOS</button>
+          <button data-filter="gestante" class="filter-btn py-1.5 hover:text-white transition-colors">GESTANTE</button>
+          <button data-filter="casal" class="filter-btn py-1.5 hover:text-white transition-colors">CASAL</button>
+          <button data-filter="feminino" class="filter-btn py-1.5 hover:text-white transition-colors">FEMININO</button>
+          <button data-filter="fitness" class="filter-btn py-1.5 hover:text-white transition-colors">FITNESS</button>
+          <button data-filter="eventos" class="filter-btn py-1.5 hover:text-white transition-colors">EVENTOS</button>
+        </div>
+
+      </div>
+
+      <!-- Dynamic Photo Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+        <!-- Injetado dinamicamente via JSON -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="sobre" class="py-20 lg:py-28 border-b border-white/10 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-3 text-xs font-mono tracking-widest text-brand-amber uppercase">
+            <span class="w-6 h-[1px] bg-brand-amber"></span>
+            <span>SOBRE WELITON BATISTA</span>
+          </div>
+
+          <h2 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            CADA FOTO CONTA UMA HISTÓRIA AUTÊNTICA.
+          </h2>
+
+          <p class="text-sm sm:text-base text-brand-muted font-light leading-relaxed">
+            Baseado em Coimbra, o meu foco é criar um ambiente confortável onde você não precisa de se preocupar com poses engessadas. A fotografia acontece naturalmente enquanto conversamos e aproveitamos os melhores cenários da cidade.
+          </p>
+
+          <p class="text-sm sm:text-base text-brand-muted font-light leading-relaxed">
+            Seja nos jardins da Quinta das Lágrimas, nos caminhos do Parque Verde ou num ambiente urbano, o objetivo é capturar a sua essência com verdade e elegância.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6 border-l border-white/10 pl-0 lg:pl-10">
+          
+          <div class="space-y-2">
+            <h3 class="font-mono text-xs text-brand-amber uppercase tracking-widest">01. LUZ NATURAL</h3>
+            <p class="text-xs text-brand-muted font-light">Aproveitamento da Golden Hour e tons quentes ao ar livre.</p>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="font-mono text-xs text-brand-amber uppercase tracking-widest">02. DIREÇÃO LEVE</h3>
+            <p class="text-xs text-brand-muted font-light">Orientação sem tensão para pessoas que não costumam ser fotografadas.</p>
+          </div>
+
+          <div class="space-y-2">
+            <h3 class="font-mono text-xs text-brand-amber uppercase tracking-widest">03. GALERIA DIGITAL</h3>
+            <p class="text-xs text-brand-muted font-light">Entrega conveniente em alta resolução pronta para partilhar.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= EXPERIENCE & PROCESS ================= -->
+  <section class="py-20 lg:py-28 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-mono tracking-widest text-brand-amber uppercase">COMO FUNCIONA</span>
+        <h2 class="font-display font-black text-3xl sm:text-4xl uppercase tracking-tight text-white">
+          A SUA EXPERIÊNCIA
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-8 bg-brand-dark border border-white/10 space-y-4">
+          <span class="font-mono text-xs text-brand-amber font-bold">01. PLANO & AGENDAMENTO</span>
+          <h3 class="font-display font-bold text-xl uppercase text-white">Conversa Inicial</h3>
+          <p class="text-xs text-brand-muted font-light leading-relaxed">
+            Definimos o tema do ensaio, o local em Coimbra e as melhores combinações de roupa.
+          </p>
+        </div>
+
+        <div class="p-8 bg-brand-dark border border-white/10 space-y-4">
+          <span class="font-mono text-xs text-brand-amber font-bold">02. O DIA DO ENSAIO</span>
+          <h3 class="font-display font-bold text-xl uppercase text-white">Sessão Descontraída</h3>
+          <p class="text-xs text-brand-muted font-light leading-relaxed">
+            Um momento leve sem pressas. Eu guio cada passo para garantir fotos naturais.
+          </p>
+        </div>
+
+        <div class="p-8 bg-brand-dark border border-white/10 space-y-4">
+          <span class="font-mono text-xs text-brand-amber font-bold">03. ENTREGA FINAL</span>
+          <h3 class="font-display font-bold text-xl uppercase text-white">Galeria Privada</h3>
+          <p class="text-xs text-brand-muted font-light leading-relaxed">
+            Recebe as suas fotos tratadas e em alta definição para descarregar quando quiser.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER / CONTACT ================= -->
+  <footer id="contacto" class="py-20 lg:py-28 bg-brand-black">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-16">
+      
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-white/10">
+        <div class="space-y-4 max-w-2xl">
+          <span class="text-xs font-mono tracking-widest text-brand-amber uppercase">VAMOS CONVERSAR?</span>
+          <h2 class="font-display font-black text-4xl sm:text-6xl uppercase tracking-tight text-white leading-none">
+            VAMOS CRIAR ALGO INCRÍVEL JUNTOS?
+          </h2>
+        </div>
+
+        <a href="https://wa.me/message/3O2TRCKN4YJTB1?text=Ol%C3%A1%20Weliton!%20Gostaria%20de%20agendar%20um%20ensaio." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="px-8 py-5 bg-brand-amber text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-black transition-all whitespace-nowrap">
+          FALAR NO WHATSAPP
+        </a>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-brand-muted gap-4">
+        <div class="flex items-center gap-2">
+          <span class="font-black text-white uppercase">WELITON BATISTA</span>
+          <span>• COIMBRA, PORTUGAL</span>
+        </div>
+        <p>© 2026 WB FOTOGRAFIAS. TODOS OS DIREITOS RESERVADOS.</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ================= LIGHTBOX MODAL ================= -->
+  <div id="modal" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
+    <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-2xl hover:text-brand-amber focus:outline-none">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-4xl w-full text-center space-y-4">
+      <img id="modal-img" src="" alt="" class="max-h-[80vh] mx-auto object-contain border border-white/10">
+      <div>
+        <h4 id="modal-title" class="font-display font-bold text-xl uppercase text-white"></h4>
+        <p id="modal-sub" class="text-xs font-mono text-brand-amber mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Netlify Identity Redirection Script
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+
+    // Mobile Drawer
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Load Portfolio from JSON dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('data/portfolio.json')
+        .then(response => response.json())
+        .then(data => {
+          const grid = document.getElementById('portfolio-grid');
+          grid.innerHTML = '';
+
+          if (data && data.photos) {
+            data.photosforEach(photo => {
+              const card = document.createElement('div');
+              card.className = 'gallery-card group cursor-pointer';
+              card.setAttribute('data-category', photo.category);
+              card.onclick = () => openModal(photo.image, photo.title, photo.sub);
+
+              card.innerHTML = `
+                <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
+                  <img src="${photo.image}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
+                    <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">${photo.category}</span>
+                    <h3 class="font-display font-bold text-lg text-white uppercase">${photo.title}</h3>
+                    <p class="text-xs text-brand-muted font-mono mt-1">${photo.sub || ''}</p>
+                  </div>
+                </div>
+              `;
+              grid.appendChild(card);
+            });
+          }
+
+          initFilters();
+        })
+        .catch(err => console.log('Erro ao carregar portfólio:', err));
+    });
+
+    // Portfolio Filtering Setup
+    function initFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryCards = document.querySelectorAll('.gallery-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          galleryCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // Lightbox Modal
+    function openModal(imgSrc, title, sub) {
+      document.getElementById('modal-img').src = imgSrc;
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-sub').innerText = sub;
+      document.getElementById('modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') closeModal();
+    });
+  </script>
+
+</body>
 </html>
