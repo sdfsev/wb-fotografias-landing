@@ -210,7 +210,7 @@
         </div>
 
         <!-- Filter Links -->
-        <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono tracking-widest uppercase text-brand-muted">
+        <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono tracking-widest uppercase text-brand-muted" id="filter-container">
           <button data-filter="all" class="filter-btn active py-1.5 hover:text-white transition-colors">TODOS</button>
           <button data-filter="gestante" class="filter-btn py-1.5 hover:text-white transition-colors">GESTANTE</button>
           <button data-filter="casal" class="filter-btn py-1.5 hover:text-white transition-colors">CASAL</button>
@@ -221,121 +221,9 @@
 
       </div>
 
-      <!-- Photo Grid -->
+      <!-- Dynamic Photo Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
-        
-        <!-- Card 1 - Gestante -->
-        <div class="gallery-card group cursor-pointer" data-category="gestante" onclick="openModal('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80', 'Gestante no Parque', 'Coimbra • Luz Dourada')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" 
-                 alt="Gestante no Parque" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">GESTANTE</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Gestante no Parque</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Parque Verde • Coimbra</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 - Casal -->
-        <div class="gallery-card group cursor-pointer" data-category="casal" onclick="openModal('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80', 'Casal no Outono', 'Quinta das Lágrimas • Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" 
-                 alt="Casal no Outono" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">CASAL</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Casal no Outono</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Quinta das Lágrimas</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 - Feminino -->
-        <div class="gallery-card group cursor-pointer" data-category="feminino" onclick="openModal('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80', 'Retrato Urbano', 'Alta de Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" 
-                 alt="Retrato Urbano" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">FEMININO & LIFESTYLE</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Retrato Urbano</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Alta de Coimbra</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 - Fitness -->
-        <div class="gallery-card group cursor-pointer" data-category="fitness" onclick="openModal('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80', 'Fitness & Personal Branding', 'Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" 
-                 alt="Fitness & Personal Branding" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">FITNESS</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Personal Branding</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Coimbra Gym / Outdoor</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 - Gestante 2 -->
-        <div class="gallery-card group cursor-pointer" data-category="gestante" onclick="openModal('https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80', 'Sensibilidade & Maternidade', 'Jardim Botânico • Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" 
-                 alt="Sensibilidade & Maternidade" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">GESTANTE</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Maternidade Leve</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Jardim Botânico</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 - Eventos -->
-        <div class="gallery-card group cursor-pointer" data-category="eventos" onclick="openModal('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80', 'Eventos & Celebrações', 'Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" 
-                 alt="Eventos & Celebrações" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">EVENTOS</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Momentos Especiais</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Cobertura de Eventos</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 7 - Feminino 2 -->
-        <div class="gallery-card group cursor-pointer" data-category="feminino" onclick="openModal('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80', 'Retrato ao Pôr do Sol', 'Mondego • Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" 
-                 alt="Retrato ao Pôr do Sol" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">FEMININO & LIFESTYLE</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Luz Natural</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Margem do Mondego</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 8 - Casal 2 -->
-        <div class="gallery-card group cursor-pointer" data-category="casal" onclick="openModal('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80', 'Cúmplices na Cidade', 'Baixa de Coimbra')">
-          <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" 
-                 alt="Cúmplices na Cidade" 
-                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
-              <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">CASAL</span>
-              <h3 class="font-display font-bold text-lg text-white uppercase">Olhares Espontâneos</h3>
-              <p class="text-xs text-brand-muted font-mono mt-1">Baixa de Coimbra</p>
-            </div>
-          </div>
-        </div>
-
+        <!-- Injetado dinamicamente via JSON -->
       </div>
 
     </div>
@@ -503,27 +391,63 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Portfolio Filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
+    // Load Portfolio from JSON dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('data/portfolio.json')
+        .then(response => response.json())
+        .then(data => {
+          const grid = document.getElementById('portfolio-grid');
+          grid.innerHTML = '';
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+          if (data && data.photos) {
+            data.photosforEach(photo => {
+              const card = document.createElement('div');
+              card.className = 'gallery-card group cursor-pointer';
+              card.setAttribute('data-category', photo.category);
+              card.onclick = () => openModal(photo.image, photo.title, photo.sub);
 
-        const filter = btn.getAttribute('data-filter');
-
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
+              card.innerHTML = `
+                <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
+                  <img src="${photo.image}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-90 p-6 flex flex-col justify-end">
+                    <span class="text-[10px] font-mono text-brand-amber uppercase tracking-widest">${photo.category}</span>
+                    <h3 class="font-display font-bold text-lg text-white uppercase">${photo.title}</h3>
+                    <p class="text-xs text-brand-muted font-mono mt-1">${photo.sub || ''}</p>
+                  </div>
+                </div>
+              `;
+              grid.appendChild(card);
+            });
           }
+
+          initFilters();
+        })
+        .catch(err => console.log('Erro ao carregar portfólio:', err));
+    });
+
+    // Portfolio Filtering Setup
+    function initFilters() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryCards = document.querySelectorAll('.gallery-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          galleryCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
-    });
+    }
 
     // Lightbox Modal
     function openModal(imgSrc, title, sub) {
