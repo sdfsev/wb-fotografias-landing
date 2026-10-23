@@ -16,6 +16,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
   <script>
     tailwind.config = {
       theme: {
@@ -176,12 +179,16 @@
 
         <!-- Right Hero Image: Weliton Batista Portrait -->
         <div class="lg:col-span-5 flex items-center">
-  <div class="relative w-full h-full min-h-[480px] lg:min-h-[560px] bg-brand-dark border border-white/10 overflow-hidden">
-    <img src="img/weliton_img.webp" 
-         alt="Weliton Batista - Fotógrafo" 
-         class="w-full h-full object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-700">
-  </div>
-</div>
+          <div class="relative w-full h-full min-h-[480px] lg:min-h-[560px] bg-brand-dark border border-white/10 overflow-hidden">
+            <img src="img/weliton_img.webp" 
+                 alt="Weliton Batista - Fotógrafo" 
+                 class="w-full h-full object-cover object-top filter grayscale contrast-105 hover:grayscale-0 transition-all duration-700">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
 
@@ -477,6 +484,17 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
+    // Netlify Identity Redirection Script
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+
     // Mobile Drawer
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
