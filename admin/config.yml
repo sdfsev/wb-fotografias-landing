@@ -7,16 +7,17 @@ public_folder: "/img/uploads"
 
 collections:
   - name: "portfolio"
-    label: "Portfólio de Fotos"
-    label_sing: "Fotografia"
-    folder: "content/portfolio"
-    create: true
-    slug: "{{slug}}"
-    editor:
-      preview: false
-    summary: "{{title}} — [{{category}}]"
-    fields:
-      - { label: "Título do Ensaio / Foto", name: "title", widget: "string", hint: "Ex: Ensaio de Gestante no Parque" }
-      - { label: "Categoria do Ensaio", name: "category", widget: "select", options: ["gestante", "casal", "feminino", "fitness", "eventos"], default: "gestante", hint: "Seleciona onde esta foto vai aparecer no site" }
-      - { label: "Local ou Subtítulo (Opcional)", name: "sub", widget: "string", required: false, hint: "Ex: Parque Verde • Coimbra" }
-      - { label: "Fotografia (Ficheiro)", name: "image", widget: "image", hint: "Carrega a foto em alta qualidade" }
+    label: "Portfólio"
+    files:
+      - file: "data/portfolio.json"
+        label: "Gerir Fotografias"
+        name: "portfolio_data"
+        fields:
+          - label: "Lista de Fotos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Título da Foto", name: "title", widget: "string" }
+              - { label: "Categoria", name: "category", widget: "select", options: ["gestante", "casal", "feminino", "fitness", "eventos"] }
+              - { label: "Local / Subtítulo", name: "sub", widget: "string" }
+              - { label: "Imagem", name: "image", widget: "image" }
