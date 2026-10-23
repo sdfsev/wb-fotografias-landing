@@ -1,14 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-PT">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel de Administração | WB Fotografias</title>
-    <!-- Script do Netlify Identity para autenticação -->
+    <title>Painel de Gestão | WB Fotografias</title>
+    <!-- Script do Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <!-- Estilização Personalizada do Painel Admin -->
+    <style>
+      /* Fontes Globais */
+      @import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600&family=Space+Mono&display=swap');
+
+      /* Tema Escuro / Premium */
+      body {
+        background-color: #121110 !important;
+        color: #F7F5F0 !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      /* Bar do Topo (Header Admin) */
+      header {
+        background-color: #1B1A18 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      /* Títulos e Cabeçalhos */
+      h1, h2, h3, h4 {
+        font-family: 'Cabinet Grotesk', sans-serif !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      /* Botões Principais (Publish, Add, Save) */
+      button[class*="Button"],
+      a[class*="Button"] {
+        border-radius: 0px !important;
+        text-transform: uppercase !important;
+        font-family: 'Space Mono', monospace !important;
+        font-size: 11px !important;
+        letter-spacing: 0.1em !important;
+        transition: all 0.3s ease !important;
+      }
+
+      /* Botão de Publicar / Guardar */
+      button[class*="PublishButton"],
+      button[class*="SaveButton"] {
+        background-color: #D87D56 !important;
+        color: #FFFFFF !important;
+        border: none !important;
+      }
+
+      button[class*="PublishButton"]:hover,
+      button[class*="SaveButton"]:hover {
+        background-color: #FFFFFF !important;
+        color: #121110 !important;
+      }
+
+      /* Cards e Contentores de Lista */
+      div[class*="ControlContainer"],
+      div[class*="ListControl"] {
+        background-color: #1B1A18 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 0px !important;
+      }
+
+      /* Campos de Entrada de Texto (Inputs / Selects) */
+      input, select, textarea {
+        background-color: #121110 !important;
+        color: #F7F5F0 !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 0px !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      input:focus, select:focus, textarea:focus {
+        border-color: #D87D56 !important;
+        outline: none !important;
+      }
+
+      /* Área de Upload de Imagens */
+      div[class*="ImageWrapper"],
+      div[class*="FileControl"] {
+        border: 1px dashed #D87D56 !important;
+        background-color: #121110 !important;
+        border-radius: 0px !important;
+      }
+
+      /* Melhorias Responsivas para Telemóvel */
+      @media (max-width: 768px) {
+        div[class*="AppHeaderContent"] {
+          padding: 8px 12px !important;
+        }
+        div[class*="CollectionControls"] {
+          flex-direction: column !important;
+          gap: 10px !important;
+        }
+        main {
+          padding: 12px !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Script do Decap CMS (Gerenciador de Conteúdo) -->
+    <!-- Script do Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
