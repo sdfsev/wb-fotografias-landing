@@ -79,16 +79,14 @@
 
 <body class="font-sans antialiased text-brand-cream selection:bg-brand-amber selection:text-white">
 
-  <!-- ================= HEADER / NAVIGATION ================= -->
+  <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
       
-      <!-- Logo -->
       <a href="#" class="font-display font-black text-xl lg:text-2xl tracking-tight text-white uppercase hover:text-brand-amber transition-colors">
         WELITON BATISTA<span class="text-brand-amber">.</span>
       </a>
 
-      <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest text-brand-muted uppercase">
         <a href="#inicio" class="hover:text-white transition-colors">INÍCIO</a>
         <a href="#portfolio" class="hover:text-white transition-colors">PORTFÓLIO</a>
@@ -96,7 +94,6 @@
         <a href="#contacto" class="hover:text-white transition-colors">CONTACTO</a>
       </nav>
 
-      <!-- Action Button -->
       <div class="hidden md:block">
         <a href="https://wa.me/message/3O2TRCKN4YJTB1?text=Ol%C3%A1%20Weliton!%20Gostaria%20de%20agendar%20um%20ensaio." 
            target="_blank" 
@@ -106,14 +103,12 @@
         </a>
       </div>
 
-      <!-- Mobile Menu Toggle -->
       <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Menu">
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
 
     </div>
 
-    <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-b border-white/10 px-6 py-6 space-y-4 text-xs font-mono tracking-widest uppercase">
       <a href="#inicio" class="block py-2 text-white">INÍCIO</a>
       <a href="#portfolio" class="block py-2 text-white">PORTFÓLIO</a>
@@ -128,15 +123,12 @@
   </header>
 
 
-  <!-- ================= HERO SECTION ================= -->
+  <!-- HERO SECTION -->
   <section id="inicio" class="pt-32 pb-16 lg:pt-36 lg:pb-24 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-stretch">
         
-        <!-- Left Content -->
         <div class="lg:col-span-7 flex flex-col justify-between space-y-8 py-2">
-          
           <div class="space-y-6">
             <div class="flex items-center gap-3 text-xs font-mono tracking-widest text-brand-amber uppercase">
               <span class="w-8 h-[1px] bg-brand-amber"></span>
@@ -152,7 +144,6 @@
             </p>
           </div>
 
-          <!-- Hero Action CTA -->
           <div class="pt-4 flex items-center gap-6">
             <a href="#portfolio" 
                class="px-8 py-4 bg-white text-brand-black hover:bg-brand-amber hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all">
@@ -160,7 +151,6 @@
             </a>
           </div>
 
-          <!-- Bottom Social Bar / Slide Indicator -->
           <div class="pt-12 border-t border-white/10 flex flex-wrap items-center justify-between text-xs font-mono text-brand-muted uppercase gap-4">
             <div class="flex items-center gap-6">
               <a href="https://www.instagram.com/wb_fotografias/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-amber transition-colors">INSTAGRAM</a>
@@ -174,10 +164,8 @@
               01 <span class="text-brand-muted font-normal">/ 05</span>
             </div>
           </div>
-
         </div>
 
-        <!-- Right Hero Image: Weliton Batista Portrait -->
         <div class="lg:col-span-5 flex items-center">
           <div class="relative w-full h-full min-h-[480px] lg:min-h-[560px] bg-brand-dark border border-white/10 overflow-hidden">
             <img src="img/weliton_img.webp" 
@@ -187,18 +175,15 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
 
-  <!-- ================= SELECTED WORKS / PORTFOLIO SECTION ================= -->
+  <!-- PORTFOLIO SECTION -->
   <section id="portfolio" class="py-20 lg:py-28 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
       
-      <!-- Section Header & Filter Navigation -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-6 border-b border-white/10">
-        
         <div>
           <div class="flex items-center gap-3 text-xs font-mono tracking-widest text-brand-amber uppercase mb-2">
             <span class="w-6 h-[1px] bg-brand-amber"></span>
@@ -209,7 +194,7 @@
           </h2>
         </div>
 
-        <!-- Filter Links -->
+        <!-- Filtros do Portfólio -->
         <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono tracking-widest uppercase text-brand-muted" id="filter-container">
           <button data-filter="all" class="filter-btn active py-1.5 hover:text-white transition-colors">TODOS</button>
           <button data-filter="gestante" class="filter-btn py-1.5 hover:text-white transition-colors">GESTANTE</button>
@@ -218,22 +203,20 @@
           <button data-filter="fitness" class="filter-btn py-1.5 hover:text-white transition-colors">FITNESS</button>
           <button data-filter="eventos" class="filter-btn py-1.5 hover:text-white transition-colors">EVENTOS</button>
         </div>
-
       </div>
 
-      <!-- Dynamic Photo Grid -->
+      <!-- Grelha de Fotografias -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
-        <!-- Injetado dinamicamente via JSON -->
+        <!-- As fotos vão carregar aqui automaticamente -->
       </div>
 
     </div>
   </section>
 
 
-  <!-- ================= ABOUT SECTION ================= -->
+  <!-- ABOUT SECTION -->
   <section id="sobre" class="py-20 lg:py-28 border-b border-white/10 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         <div class="lg:col-span-7 space-y-6">
@@ -256,7 +239,6 @@
         </div>
 
         <div class="lg:col-span-5 space-y-6 border-l border-white/10 pl-0 lg:pl-10">
-          
           <div class="space-y-2">
             <h3 class="font-mono text-xs text-brand-amber uppercase tracking-widest">01. LUZ NATURAL</h3>
             <p class="text-xs text-brand-muted font-light">Aproveitamento da Golden Hour e tons quentes ao ar livre.</p>
@@ -271,19 +253,16 @@
             <h3 class="font-mono text-xs text-brand-amber uppercase tracking-widest">03. GALERIA DIGITAL</h3>
             <p class="text-xs text-brand-muted font-light">Entrega conveniente em alta resolução pronta para partilhar.</p>
           </div>
-
         </div>
 
       </div>
-
     </div>
   </section>
 
 
-  <!-- ================= EXPERIENCE & PROCESS ================= -->
+  <!-- EXPERIENCE & PROCESS -->
   <section class="py-20 lg:py-28 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
-      
       <div class="text-center max-w-2xl mx-auto space-y-3">
         <span class="text-xs font-mono tracking-widest text-brand-amber uppercase">COMO FUNCIONA</span>
         <h2 class="font-display font-black text-3xl sm:text-4xl uppercase tracking-tight text-white">
@@ -292,7 +271,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
         <div class="p-8 bg-brand-dark border border-white/10 space-y-4">
           <span class="font-mono text-xs text-brand-amber font-bold">01. PLANO & AGENDAMENTO</span>
           <h3 class="font-display font-bold text-xl uppercase text-white">Conversa Inicial</h3>
@@ -316,17 +294,14 @@
             Recebe as suas fotos tratadas e em alta definição para descarregar quando quiser.
           </p>
         </div>
-
       </div>
-
     </div>
   </section>
 
 
-  <!-- ================= FOOTER / CONTACT ================= -->
+  <!-- FOOTER -->
   <footer id="contacto" class="py-20 lg:py-28 bg-brand-black">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-16">
-      
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-white/10">
         <div class="space-y-4 max-w-2xl">
           <span class="text-xs font-mono tracking-widest text-brand-amber uppercase">VAMOS CONVERSAR?</span>
@@ -350,12 +325,11 @@
         </div>
         <p>© 2026 WB FOTOGRAFIAS. TODOS OS DIREITOS RESERVADOS.</p>
       </div>
-
     </div>
   </footer>
 
 
-  <!-- ================= LIGHTBOX MODAL ================= -->
+  <!-- LIGHTBOX MODAL -->
   <div id="modal" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
     <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-2xl hover:text-brand-amber focus:outline-none">
       <i class="fa-solid fa-xmark"></i>
@@ -370,9 +344,9 @@
   </div>
 
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- JAVASCRIPT -->
   <script>
-    // Netlify Identity Redirection Script
+    // Netlify Identity Redirection
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -383,15 +357,14 @@
       });
     }
 
-    // Mobile Drawer
+    // Mobile Menu
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Load Portfolio from JSON dynamically
+    // Carregar Portfólio do JSON Dinamicamente
     document.addEventListener("DOMContentLoaded", () => {
       fetch('data/portfolio.json')
         .then(response => response.json())
@@ -399,12 +372,12 @@
           const grid = document.getElementById('portfolio-grid');
           grid.innerHTML = '';
 
-          if (data && data.photos) {
-            data.photosforEach(photo => {
+          if (data && data.photos && data.photos.length > 0) {
+            data.photos.forEach(photo => {
               const card = document.createElement('div');
               card.className = 'gallery-card group cursor-pointer';
-              card.setAttribute('data-category', photo.category);
-              card.onclick = () => openModal(photo.image, photo.title, photo.sub);
+              card.setAttribute('data-category', photo.category.toLowerCase());
+              card.onclick = () => openModal(photo.image, photo.title, photo.sub || '');
 
               card.innerHTML = `
                 <div class="relative h-[420px] bg-brand-dark border border-white/10 overflow-hidden">
@@ -420,22 +393,22 @@
             });
           }
 
-          initFilters();
+          setupFilters();
         })
-        .catch(err => console.log('Erro ao carregar portfólio:', err));
+        .catch(err => console.error('Erro ao carregar o ficheiro do portfólio:', err));
     });
 
-    // Portfolio Filtering Setup
-    function initFilters() {
+    // Sistema de Filtros Por Categoria
+    function setupFilters() {
       const filterBtns = document.querySelectorAll('.filter-btn');
-      const galleryCards = document.querySelectorAll('.gallery-card');
-
+      
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           filterBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
 
-          const filter = btn.getAttribute('data-filter');
+          const filter = btn.getAttribute('data-filter').toLowerCase();
+          const galleryCards = document.querySelectorAll('.gallery-card');
 
           galleryCards.forEach(card => {
             const category = card.getAttribute('data-category');
@@ -468,5 +441,7 @@
     });
   </script>
 
+</body>
+</html>
 </body>
 </html>
